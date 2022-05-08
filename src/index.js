@@ -7,11 +7,11 @@
 // ========
 
 // React Components
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 // Application Components
-import App from './App';
+import App from "./App";
 
 // Stylesheets
 import "./index.css";

@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/06/2022
+// 05/07/2022
 
 // App.js
 // ======
@@ -10,15 +10,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Contexts
+import{ CartProvider } from "./contexts/CartContext.js";
+
 // Application Components
-import HeaderFooter from "./HeaderFooter";
-import Home from "./Home";
-import Products from "./Products";
-import ProductDetails from "./ProductDetails";
-import Cart from "./Cart";
-import Checkout from "./Checkout";
-import About from "./About";
-import NotFound from "./NotFound";
+import HeaderFooter from "./components/HeaderFooter";
+import Home from "./components/Home";
+import Products from "./components/Products";
+import ProductDetails from "./components/ProductDetails";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import About from "./components/About";
+import NotFound from "./components/NotFound";
 
 // Stylesheets
 import "./App.css";
@@ -29,21 +32,23 @@ import "./App.css";
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
-        <HeaderFooter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="products" element={<Products />} />
-            <Route path="products/:id" element={<ProductDetails />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="checkout" element={<Checkout />} />
-            <Route path="about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </HeaderFooter>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <HeaderFooter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="products" element={<Products />} />
+              <Route path="products/:id" element={<ProductDetails />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="checkout" element={<Checkout />} />
+              <Route path="about" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </HeaderFooter>
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
-}
+};
 
 export default App;

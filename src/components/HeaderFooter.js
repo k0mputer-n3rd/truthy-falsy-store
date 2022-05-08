@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/06/2022
+// 05/07/2022
 
 // HeaderFooter.js
 // ===============
@@ -13,13 +13,12 @@ import { Link } from "react-router-dom";
 // Application Components
 
 // Stylesheets
-import "./App.css";
+import "../App.css";
 
 // HeaderFooter()
 // ==============
 
 const HeaderFooter = (props) => {
-// function HeaderFooter(props) {
   return (
     <div>
       <div

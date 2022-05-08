@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/06/2022
+// 05/07/2022
 
 // About.js
 // ========

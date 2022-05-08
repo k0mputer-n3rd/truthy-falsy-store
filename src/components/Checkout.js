@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/06/2022
+// 05/08/2022
 
 // Checkout.js
 // ===========
@@ -26,7 +26,7 @@ const Checkout = () => {
     <div>
       <h1>The Checkout Procedure will be handled here</h1>
       <br />
-      <button primary onClick={() => navigate("/")}>
+      <button onClick={() => navigate("/")}>
         Home Page
       </button>
     </div>

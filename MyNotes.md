@@ -33,3 +33,21 @@ npm install react-router-dom
 
 Note: "npm install" will use the package.json file and install all dependencies required. This is useful when cloning someone else's application from GitHub, where the dependencies are not included.
 
+## Fake Store Website
+https://fakestoreapi.com
+
+Categories = ["electronics","jewelery","men's clothing","women's clothing"]
+
+## Credits
+This video on Context API was very helpful:
+https://youtu.be/3yrMcx02jXs
+
+## To Do:
+Display a "Quantity" input with default value of 1.
+[ask] Why does Andrew use "let" instead of "const" for navigate and a few other things?
+It looks like I have a lot of junk in node_modules. Is housekeeping needed? [ask]
+Do I always need to import React? Remove if not needed. [ask]
+Check to see where stylesheets are needed, remove unneeded imports.
+Remove commented code that is not used.
+Add comments where helpful.
+Remove console.log() when done.
