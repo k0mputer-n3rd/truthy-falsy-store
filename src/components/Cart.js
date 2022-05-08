@@ -32,17 +32,21 @@ const Cart = () => {
   if (items.length === 0) {
     itemList = <li>Cart is empty.</li>;
   } else {
-    itemList = items.map((item) => (
-      <li key={item.id}>
-        {item.title} ${item.price}
-      </li>
+    itemList = items.map((item, index) => (
+      <tr key={index}>
+        <td>{item.quantity}</td>
+        <td>{item.title}</td>
+        <td>${item.price}</td>
+      </tr>
     ));
   }
 
   return (
     <div>
-      <h1>Items in the Cart will be shown here</h1>
-      {itemList}
+      <h1>Cart Contents</h1>
+      <table>
+        <tbody>{itemList}</tbody>
+      </table>
       <br />
       <button onClick={() => navigate("/")}>Home Page</button>
       <br />

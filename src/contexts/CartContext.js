@@ -22,8 +22,14 @@ const CartContext = createContext();
 const CartProvider = (props) => {
   const [items, setItems] = useState([]);
 
-  const addToCart = (newItem) => {
-    setItems((prevState) => [...prevState, newItem]);
+  const addToCart = (product, quantity) => {
+    const item = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: quantity,
+    };
+    setItems((prevState) => [...prevState, item]);
   }
 
   return (

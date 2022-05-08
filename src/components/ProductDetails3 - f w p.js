@@ -25,11 +25,23 @@ const ProductDetails = () => {
   const { items, addToCart } = useContext(CartContext);
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
-//  const [item, setItem] = useState({});
+  const [item, setItem] = useState({});
   const navigate = useNavigate();
   const params = useParams();
 
   console.log(`ProductDetails #${params.id}!`);
+
+  const addItemToCart = (prod, quan) => {
+    console.log("Product: ", prod);
+    setItem({
+      id: prod.id,
+      title: prod.title,
+      price: prod.price,
+      quantity: quan,
+    });
+    console.log(item);
+    addToCart(item);
+  };
 
   useEffect(() => {
     const getProduct = async () => {
@@ -59,7 +71,7 @@ const ProductDetails = () => {
       </div>
 
       <button
-        onClick={() => addToCart(product, quantity)}
+        onClick={() => addItemToCart(product, quantity)}
       >
         Add To Cart
       </button>
@@ -68,20 +80,5 @@ const ProductDetails = () => {
     </div>
   );
 };
-
-// addItemToCart()
-// ===============
-
-// const addItemToCart = (product, quantity, addItem) => {
-//   console.log("Product: ", product);
-//   const item = {
-//     id: product.id,
-//     title: product.title,
-//     price: product.price,
-//     quantity: quantity,
-//   };
-//   console.log(item);
-//   addItem(item);
-// };
 
 export default ProductDetails;

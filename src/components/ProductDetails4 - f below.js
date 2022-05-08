@@ -59,7 +59,7 @@ const ProductDetails = () => {
       </div>
 
       <button
-        onClick={() => addToCart(product, quantity)}
+        onClick={() => addItemToCart(product, quantity, addToCart)}
       >
         Add To Cart
       </button>
@@ -69,19 +69,16 @@ const ProductDetails = () => {
   );
 };
 
-// addItemToCart()
-// ===============
-
-// const addItemToCart = (product, quantity, addItem) => {
-//   console.log("Product: ", product);
-//   const item = {
-//     id: product.id,
-//     title: product.title,
-//     price: product.price,
-//     quantity: quantity,
-//   };
-//   console.log(item);
-//   addItem(item);
-// };
+const addItemToCart = (prod, quan, addF) => {
+  console.log("Product: ", prod);
+  const item = {
+    id: prod.id,
+    title: prod.title,
+    price: prod.price,
+    quantity: quan,
+  };
+  console.log(item);
+  addF(item);
+};
 
 export default ProductDetails;
