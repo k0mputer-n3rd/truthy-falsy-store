@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/07/2022
+// 05/08/2022
 
 // CartContext.js
 // ==============
@@ -26,14 +26,25 @@ const CartProvider = (props) => {
     const item = {
       id: product.id,
       title: product.title,
-      price: product.price,
-      quantity: quantity,
+      price: parseFloat(product.price),
+      quantity: parseInt(quantity),
     };
     setItems((prevState) => [...prevState, item]);
-  }
+  };
+
+  const totalCart = () => {
+    return items.reduce(
+      (prev, item) => prev + item.price * item.quantity,
+      0
+    );
+  };
+
+  const clearCart = () => {
+    setItems([]);
+  };
 
   return (
-    <CartContext.Provider value={{ items, addToCart }}>
+    <CartContext.Provider value={{ items, addToCart, totalCart, clearCart }}>
       {props.children}
     </CartContext.Provider>
   );

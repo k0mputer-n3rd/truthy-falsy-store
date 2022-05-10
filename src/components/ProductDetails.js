@@ -69,19 +69,4 @@ const ProductDetails = () => {
   );
 };
 
-// addItemToCart()
-// ===============
-
-// const addItemToCart = (product, quantity, addItem) => {
-//   console.log("Product: ", product);
-//   const item = {
-//     id: product.id,
-//     title: product.title,
-//     price: product.price,
-//     quantity: quantity,
-//   };
-//   console.log(item);
-//   addItem(item);
-// };
-
 export default ProductDetails;

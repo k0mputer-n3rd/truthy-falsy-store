@@ -22,8 +22,8 @@ import { CartContext } from "../contexts/CartContext.js";
 // ======
 
 const Cart = () => {
-  const { items } = useContext(CartContext);
-  let navigate = useNavigate();
+  const { items, totalCart } = useContext(CartContext);
+  const navigate = useNavigate();
   let itemList;
 
   console.log("Cart!");
@@ -47,6 +47,8 @@ const Cart = () => {
       <table>
         <tbody>{itemList}</tbody>
       </table>
+      <br />
+      <p>Total is: ${totalCart().toFixed(2)}</p>
       <br />
       <button onClick={() => navigate("/")}>Home Page</button>
       <br />
