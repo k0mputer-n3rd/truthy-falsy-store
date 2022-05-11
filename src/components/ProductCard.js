@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/07/2022
+// 05/10/2022
 
 // Products.js
 // ===========
@@ -35,7 +35,7 @@ const ProductCard = (props) => {
         />
       </div>
       <div className="ProductCard-Title">{product.title}</div>
-      <div className="ProductCard-Price">{product.price}</div>
+      <div className="ProductCard-Price">{product.price.toFixed(2)}</div>
     </div>
   );
 };

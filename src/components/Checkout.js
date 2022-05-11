@@ -31,7 +31,12 @@ const Checkout = () => {
 
   console.log("Checkout!");
 
-  function handleSubmit(event) {
+  const cancelOrder = () => {
+    clearCart();
+    navigate("/");
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     const payload = {
       nameTo,
@@ -43,7 +48,7 @@ const Checkout = () => {
     console.log("Order payload is: ", payload);
     clearCart();
     navigate("/");
-  }
+  };
 
   return (
     <div>
@@ -92,11 +97,13 @@ const Checkout = () => {
             onChange={(event) => setCardInfo(event.target.value)}
           />
         </div>
-
-        <button type="button">Cancel</button>
-        <button primary="true" type="submit">
-          Submit
-        </button>
+        <button onClick={() => navigate("/products")}>View Products</button>
+        <br />
+        <button onClick={() => navigate("/cart")}>View Cart</button>
+        <br />
+        <button onClick={() => cancelOrder()}>Cancel Order</button>
+        <br />
+        <button type="submit">Submit Order</button>
       </form>
     </div>
   );

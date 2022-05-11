@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/08/2022
+// 05/10/2022
 
 // Cart.js
 // =======
@@ -22,23 +22,45 @@ import { CartContext } from "../contexts/CartContext.js";
 // ======
 
 const Cart = () => {
-  const { items, totalCart } = useContext(CartContext);
+  const { items, totalCart, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
   let itemList;
+  let Buttons;
 
   console.log("Cart!");
   console.log(items);
 
+  const cancelOrder = () => {
+    clearCart();
+    navigate("/");
+  };
+
   if (items.length === 0) {
     itemList = <li>Cart is empty.</li>;
+    Buttons = (
+      <>
+        <button onClick={() => navigate("/products")}>View Products</button>
+        <br />
+      </>
+    );
   } else {
     itemList = items.map((item, index) => (
       <tr key={index}>
         <td>{item.quantity}</td>
         <td>{item.title}</td>
-        <td>${item.price}</td>
+        <td>${item.price.toFixed(2)}</td>
       </tr>
     ));
+    Buttons = (
+      <>
+        <button onClick={() => navigate("/products")}>View Products</button>
+        <br />
+        <button onClick={() => cancelOrder()}>Cancel Order</button>
+        <br />
+        <button onClick={() => navigate("/checkout")}>Checkout</button>
+        <br />
+      </>
+    );
   }
 
   return (
@@ -50,9 +72,7 @@ const Cart = () => {
       <br />
       <p>Total is: ${totalCart().toFixed(2)}</p>
       <br />
-      <button onClick={() => navigate("/")}>Home Page</button>
-      <br />
-      <button onClick={() => navigate("/checkout")}>Checkout Page</button>
+      {Buttons}
     </div>
   );
 };

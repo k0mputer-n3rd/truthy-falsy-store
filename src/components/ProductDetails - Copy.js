@@ -24,8 +24,8 @@ import { CartContext } from "../contexts/CartContext.js";
 const ProductDetails = () => {
   const { items, addToCart, cartFind } = useContext(CartContext);
   const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(1);
   const [inCart, setInCart] = useState();
+  const [quantity, setQuantity] = useState();
   const navigate = useNavigate();
   const params = useParams();
   let Buttons;
@@ -35,18 +35,18 @@ const ProductDetails = () => {
   const addItemToCart = (product, quantity) => {
     addToCart(product, quantity);
     navigate("/cart");
-  };
+  }
 
-  const updateItemInCart = (id, quantity) => {
-    // ***** I need to create a function to do this *****
+const updateItemInCart = (id, quantity) => {
+// ***** I need to create a function to do this *****
+  navigate("/cart");
+}
+
+const deleteItemInCart = (id) => {
+  // ***** I need to create a function to do this *****
     navigate("/cart");
-  };
-
-  const deleteItemInCart = (id) => {
-    // ***** I need to create a function to do this *****
-    navigate("/cart");
-  };
-
+  }
+  
   useEffect(() => {
     const getProduct = async () => {
       const url = `https://fakestoreapi.com/products/${params.id}`;
@@ -57,14 +57,13 @@ const ProductDetails = () => {
     getProduct();
   }, [params.id]);
 
-  const item = cartFind(parseInt(params.id));
-  console.log(item);
+  const item = cartFind(params.id);
   if (item === undefined) {
-    // setQuantity(1);
-    console.log("Not in Cart");
+    setQuantity(1);
+    setInCart(false);
     Buttons = (
       <>
-        <button onClick={() => addItemToCart(product, quantity)}>Add Item to Cart</button>
+        <button onClick={() => addItemToCart()}>Add Item to Cart</button>
         <br />
         <button onClick={() => navigate("/products")}>View Products</button>
         <br />
@@ -73,14 +72,13 @@ const ProductDetails = () => {
       </>
     );
   } else {
-    // console.log(item.quantity);
-    // setQuantity(item.quantity);
-    console.log("Item in Cart");
+    setQuantity(item.quantity);
+    setInCart(true);
     Buttons = (
       <>
-        <button onClick={() => updateItemInCart(product.id, quantity)}>Update Item in Cart</button>
+        <button onClick={() => updateItemInCart()}>Update Item in Cart</button>
         <br />
-        <button onClick={() => deleteItemInCart(product.id)}>Delete Item in Cart</button>
+        <button onClick={() => deleteItemInCart()}>Delete Item in Cart</button>
         <br />
         <button onClick={() => navigate("/products")}>View Products</button>
         <br />
@@ -88,11 +86,12 @@ const ProductDetails = () => {
         <br />
       </>
     );
- }
+  }
+
+  console.log(product.title);
 
   return (
     <div>
-      <p>Items in Cart: {items.length}</p>
       <h1>{product.title}</h1>
       <br />
       <div>
@@ -100,7 +99,6 @@ const ProductDetails = () => {
         <input
           name="qty"
           type="text"
-          autocomplete="off"
           value={quantity}
           onChange={(event) => setQuantity(event.target.value)}
         />

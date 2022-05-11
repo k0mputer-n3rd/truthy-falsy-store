@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/07/2022
+// 05/10/2022
 
 // Home.js
 // =======
@@ -23,32 +23,36 @@ import { CartContext } from "../contexts/CartContext.js";
 
 const Home = () => {
   const { items } = useContext(CartContext);
-  let navigate = useNavigate();
-  let cartInfo;
+  const navigate = useNavigate();
+  let Buttons;
 
   console.log("Home!");
 
   if (items.length === 0) {
-    cartInfo = <p>Cart is empty.</p>;
-  } else if (items.length === 1) {
-    cartInfo = <p>Cart contains 1 item.</p>;
+    Buttons = (
+      <>
+        <button onClick={() => navigate("/products")}>View Products</button>
+        <br />
+      </>
+    );
   } else {
-    cartInfo = <p>Cart contains {items.length} items.</p>;
+    Buttons = (
+      <>
+        <button onClick={() => navigate("/products")}>View Products</button>
+        <br />
+        <button onClick={() => navigate("/cart")}>View Cart</button>
+        <br />
+        <button onClick={() => navigate("/checkout")}>Checkout</button>
+        <br />
+      </>
+    );
   }
 
   return (
     <div>
       <h1>Truthy-Falsy Store</h1>
       <br />
-      {cartInfo}
-      <button primary="true" onClick={() => navigate("/products")}>
-        See Products
-      </button>
-      <br />
-      <p>
-        If there are items in the cart, then links to the cart and checkout
-        pages will be included here.
-      </p>
+      {Buttons}
     </div>
   );
 };

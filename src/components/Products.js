@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/07/2022
+// 05/10/2022
 
 // Products.js
 // ===========
@@ -40,6 +40,7 @@ const Products = () => {
     <div>
       <h1>Products</h1>
       <br />
+      <p>Click a product to select it.</p>
       <div className="ProductCards-Box">
         {productList.map((product) => (
           <ProductCard key={product.id} product={product} />

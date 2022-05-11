@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/07/2022
+// 05/10/2022
 
 // About.js
 // ========
@@ -30,7 +30,7 @@ const About = () => {
         BitWise React class. It uses data from fakestoreapi.com.
       </p>
       <br />
-      <button primary onClick={() => navigate("/")}>
+      <button onClick={() => navigate("/")}>
         Home Page
       </button>
     </div>
