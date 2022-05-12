@@ -1,7 +1,7 @@
 // React Homework Final Project
 // Truthy-Falsy Store
 // Allen P.
-// 05/08/2022
+// 05/11/2022
 
 // ProductDetails.js
 // =================
@@ -22,10 +22,9 @@ import { CartContext } from "../contexts/CartContext.js";
 // ================
 
 const ProductDetails = () => {
-  const { items, addToCart, cartFind } = useContext(CartContext);
+  const { items, addToCart, cartFind, updateItem, deleteItem } = useContext(CartContext);
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const [inCart, setInCart] = useState();
   const navigate = useNavigate();
   const params = useParams();
   let Buttons;
@@ -38,12 +37,12 @@ const ProductDetails = () => {
   };
 
   const updateItemInCart = (id, quantity) => {
-    // ***** I need to create a function to do this *****
+    updateItem(id, quantity);
     navigate("/cart");
   };
 
   const deleteItemInCart = (id) => {
-    // ***** I need to create a function to do this *****
+    deleteItem(id);
     navigate("/cart");
   };
 
@@ -99,7 +98,7 @@ const ProductDetails = () => {
         <label htmlFor="qty">Quantity</label>
         <input
           name="qty"
-          type="text"
+          type="number"
           autocomplete="off"
           value={quantity}
           onChange={(event) => setQuantity(event.target.value)}

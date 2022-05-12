@@ -43,10 +43,10 @@ This video on Context API was very helpful:
 https://youtu.be/3yrMcx02jXs
 
 ## To Do:
+Debug quantity in ProductDetails.
 Change addToCart for insertion by product id.
-Write updateItem.
-Write deleteItem.
 Call cart functions from Product Details.
+Select products from cart page.
 Learn StyledComponents.
 Format Products page.
 [ask] Why does Andrew use "let" instead of "const" for navigate and a few other things?
