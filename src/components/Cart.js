@@ -66,6 +66,7 @@ const Cart = () => {
   return (
     <div>
       <h1>Cart Contents</h1>
+      <p>Items in Cart: {items.length}</p>
       <table>
         <tbody>{itemList}</tbody>
       </table>

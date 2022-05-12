@@ -32,9 +32,9 @@ const HeaderFooter = (props) => {
         }}
       >
         <div className="Logo">Truthy-Falsy Store</div>
-        <div>
+        {/* <div>
           <p>Items in Cart: {items.length}</p>
-        </div>
+        </div> */}
         <div style={{ display: "flex" }}>
           <div style={{ padding: 10 }}>
             <Link to="/" className="Link">

@@ -44,8 +44,6 @@ https://youtu.be/3yrMcx02jXs
 
 ## To Do:
 Debug quantity in ProductDetails.
-Change addToCart for insertion by product id.
-Call cart functions from Product Details.
 Select products from cart page.
 Learn StyledComponents.
 Format Products page.
